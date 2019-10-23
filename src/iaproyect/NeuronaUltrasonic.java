@@ -45,21 +45,25 @@ public class NeuronaUltrasonic {
         return 0;
     }
     public String Process(int ultrasonicFront, int ultrasonicBack, int ultrasonicLeft, int ultrasonicRight, int colorFront, int colorBack){
-        if( (ultrasonicLeft < ultrasonicFront) && (ultrasonicLeft < ultrasonicBack) && (ultrasonicLeft < ultrasonicRight) ){
-            // menor distancia del lado izquierdo
-            return this.neurona_color.NeuronaColorDatos(1, ultrasonicLeft,  colorFront, colorBack);
-        }
-        if( (ultrasonicRight < ultrasonicFront) && (ultrasonicRight < ultrasonicBack) && (ultrasonicRight < ultrasonicLeft) ){
-            // menor distancia del lado derecho
-            return this.neurona_color.NeuronaColorDatos(2, ultrasonicRight, colorFront, colorBack);
-        }
-        if( (ultrasonicFront < ultrasonicLeft) && (ultrasonicFront < ultrasonicBack) && (ultrasonicFront < ultrasonicRight) ){
-            // menor distancia al frente
-            return this.neurona_color.NeuronaColorDatos(3, ultrasonicFront, colorFront, colorBack);
-        }
-        if( (ultrasonicBack < ultrasonicFront) && (ultrasonicBack < ultrasonicLeft) && (ultrasonicBack < ultrasonicRight) ){
-            // menor distancia atras
-            return this.neurona_color.NeuronaColorDatos(4, ultrasonicBack, colorFront, colorBack);
+        if ( (ultrasonicFront < 50) && (ultrasonicBack < 50) && (ultrasonicLeft < 50) && (ultrasonicRight < 50)){
+            if( (ultrasonicLeft < ultrasonicFront) && (ultrasonicLeft < ultrasonicBack) && (ultrasonicLeft < ultrasonicRight) ){
+                // menor distancia del lado izquierdo
+                return this.neurona_color.NeuronaColorDatos(1, ultrasonicLeft,  colorFront, colorBack);
+            }
+            if( (ultrasonicRight < ultrasonicFront) && (ultrasonicRight < ultrasonicBack) && (ultrasonicRight < ultrasonicLeft) ){
+                // menor distancia del lado derecho
+                return this.neurona_color.NeuronaColorDatos(2, ultrasonicRight, colorFront, colorBack);
+            }
+            if( (ultrasonicFront < ultrasonicLeft) && (ultrasonicFront < ultrasonicBack) && (ultrasonicFront < ultrasonicRight) ){
+                // menor distancia al frente
+                return this.neurona_color.NeuronaColorDatos(3, ultrasonicFront, colorFront, colorBack);
+            }
+            if( (ultrasonicBack < ultrasonicFront) && (ultrasonicBack < ultrasonicLeft) && (ultrasonicBack < ultrasonicRight) ){
+                // menor distancia atras
+                return this.neurona_color.NeuronaColorDatos(4, ultrasonicBack, colorFront, colorBack);
+            }
+        } else {
+                return this.neurona_color.NeuronaColorDatos(2, ultrasonicRight, colorFront, colorBack);
         }
         return "";
     }
